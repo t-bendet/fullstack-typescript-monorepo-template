@@ -1,10 +1,10 @@
 import FacebookLogo from "@/assets/icon-facebook.svg?react";
 import InstagramLogo from "@/assets/icon-instagram.svg?react";
 import TwitterLogo from "@/assets/icon-twitter.svg?react";
-import Logo from "@/assets/logo.svg?react";
 import { SafeRenderWithErrorBlock } from "@/components/errors/safe-render-with-error-block";
 import { Container } from "@/components/ui/container";
 import { paths } from "@/config/paths";
+import { HomeIcon } from "lucide-react";
 import { Link } from "react-router";
 import { NavLinks } from "./nav-bar/nav-links";
 
@@ -16,7 +16,7 @@ export const Footer = () => {
           className="hover:*:*:fill-primary-500 focus-visible:*:*:fill-primary-500 max-md:mx-auto md:col-span-2 lg:col-span-1"
           to={paths.home.path}
         >
-          <Logo title="audiophile logo" />
+          <HomeIcon />
         </Link>
         <SafeRenderWithErrorBlock title="Error loading categories navigation">
           <NavLinks />
