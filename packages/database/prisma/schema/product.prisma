@@ -1,0 +1,24 @@
+model Product {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  name        String     @unique(map: "name_1")
+  slug        String     @unique(map: "slug_1")
+  cartLabel   String     @unique(map: "cartLabel_1")
+  description String
+  price       Int
+  category    Category   @relation(fields: [categoryId], references: [id])
+  categoryId  String     @db.ObjectId
+  images      ProductImages
+  cartItems   CartItem[]
+  createdAt   DateTime   @default(now()) @db.Date
+  v           Int        @default(0) @map("__v")
+}
+
+type ProductImages {
+  thumbnail ProductsImagesThumbnail
+}
+
+type ProductsImagesThumbnail {
+  altText   String
+  ariaLabel String
+  src       String
+}
